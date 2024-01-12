@@ -1,0 +1,58 @@
+/* login.css */
+
+body {
+  background: radial-gradient(circle, #b0f3f7, #2cdeac);
+  font-family: 'Arial', sans-serif;
+}
+
+.form2 {
+  width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.form2 label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.form2 input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form2 button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.form2 button:hover {
+  background-color: #0056b3;
+}
+
+.form2 a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 14px;
+  margin-top: 15px;
+  display: inline-block;
+}
+
+.form2 a:hover {
+  color: #0056b3;
+}

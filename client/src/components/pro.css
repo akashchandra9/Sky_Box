@@ -1,0 +1,9 @@
+.progress-bar {
+    background-color: #4caf50; /* Green background color */
+    height: 30px; /* Set the height of the progress bar */
+    text-align: center; /* Center the text within the progress bar */
+    line-height: 30px; /* Set the line height to vertically center the text */
+    color: white; /* Text color */
+    font-weight: bold; /* Make the text bold */
+  }
+  

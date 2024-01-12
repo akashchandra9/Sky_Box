@@ -1,0 +1,79 @@
+.dropzone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .dropzone p {
+    margin-bottom: 10px;
+  }
+  
+  .dropzone button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .dropzone button:hover {
+    background-color: #45a049;
+  }
+
+  .upbutton{
+    height:80px;
+    width:80px;
+    border-radius: 100%;
+    background-color: #f4fb6b;
+    margin-left: 35%;
+    /* box-shadow: 0 0 0 3px #f86d11; */
+    border:none;
+  }
+  .upbutton:hover{
+    height:100px;
+    width:100px;
+    border-radius: 100%;
+    background-color: #f2ff00;
+    margin-left: 35%;
+    transition: 0.5s;
+    box-shadow: 0 0 0 3px #f86d11;
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    font-size: medium;
+  }
+  .downbutton{
+    height:80px;
+    width:80px;
+    border-radius: 100%;
+    background-color: rgb(88, 251, 88);
+    margin-left: 35%;
+    /* box-shadow: 0 0 0 3px #039e03; */
+    border:none;
+  }
+  .downbutton:hover{
+    height:100px;
+    width:100px;
+    border-radius: 100%;
+    background-color: rgb(0, 255, 0);
+    margin-left: 35%;
+    transition: 0.5s;
+    box-shadow: 0 0 0 3px #039e03;
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    font-size: medium;
+  }
+  
+  /* styles.css or your preferred stylesheet */
+.logout-link {
+  cursor: pointer;
+}
+
+.logout-link:hover {
+  text-decoration: underline; /* Optional: Underline on hover for visual feedback */
+}
+
+  

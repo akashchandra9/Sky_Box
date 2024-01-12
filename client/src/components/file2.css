@@ -1,0 +1,100 @@
+.down{
+
+
+    align-items: center;
+}
+/* input{
+    height: 30px;
+    width:250px;
+}
+button{
+    height: 50px;
+    width:250px;
+    align-items: center;
+    color:blue;
+    
+} */
+.inputdown{
+    height:20px;
+    width:200px;
+    align-items: center;
+    margin-left:100px;
+
+}
+.download{
+    height:80px;
+    width:80px;
+    border-radius: 100%;
+    background-color: #f4fb6b;
+    margin-left: 35%;
+    /* box-shadow: 0 0 0 3px #f86d11; */
+    border:none;
+  }
+  .download:hover{
+    height:100px;
+    width:100px;
+    border-radius: 100%;
+    background-color: #f2ff00;
+    margin-left: 35%;
+    transition: 0.5s;
+    box-shadow: 0 0 0 3px #f86d11;
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    font-size: medium;
+  }
+  .show{
+    height:80px;
+    width:80px;
+    border-radius: 100%;
+    background-color: rgb(88, 251, 88);
+    margin-left: 35%;
+    /* box-shadow: 0 0 0 3px #039e03; */
+    border:none;
+  }
+  .show:hover{
+    height:100px;
+    width:100px;
+    border-radius: 100%;
+    background-color: rgb(0, 255, 0);
+    margin-left: 35%;
+    transition: 0.5s;
+    box-shadow: 0 0 0 3px #039e03;
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    font-size: medium;
+  }
+  .delete{
+    height:80px;
+    width:80px;
+    border-radius: 100%;
+    background-color: rgb(88, 251, 88);
+    margin-left: 35%;
+    /* box-shadow: 0 0 0 3px #039e03; */
+    border:none;
+  }
+  .delete:hover{ 
+    height:100px;
+    width:100px; 
+    border-radius: 100%;
+    background-color: rgb(0, 255, 0);
+    margin-left: 35%;
+    transition: 0.5s;
+    box-shadow: 0 0 0 3px #039e03;
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    font-size: medium;
+  }
+
+
+  .image-preview {
+    max-width: 10%; /* Set the maximum width of the preview container */
+    margin-top: 1%; /* Optional: Adjust the margin for spacing */
+  }
+  
+  .preview-image {
+    max-width: 10%; /* Set the maximum width of the image to fill the container */
+    height: auto; /* Allow the image to scale proportionally */
+  }
