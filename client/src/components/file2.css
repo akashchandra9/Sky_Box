@@ -90,11 +90,11 @@ button{
 
 
   .image-preview {
-    max-width: 10%; /* Set the maximum width of the preview container */
-    margin-top: 1%; /* Optional: Adjust the margin for spacing */
+    max-width: 40%; /* Set the maximum width of the preview container */
+    margin-top: 10%; /* Optional: Adjust the margin for spacing */
   }
   
   .preview-image {
-    max-width: 10%; /* Set the maximum width of the image to fill the container */
+    max-width: 40%; /* Set the maximum width of the image to fill the container */
     height: auto; /* Allow the image to scale proportionally */
   }
