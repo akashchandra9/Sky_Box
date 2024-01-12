@@ -4,7 +4,7 @@ const path = require("path");
 app.use(express.static(path.join(__dirname, "build")));
 app.use(function(req, res, next) {
   // res.header("Access-Control-Allow-Origin", "*");
-  const allowedOrigins = ['http://localhost:3000', 'http://192.168.219.249', "https://sky-wcpy.onrender.com"];
+  const allowedOrigins = ['http://localhost:3000', 'http://192.168.219.249', "https://sky-wcpy.onrender.com","https://skybox.onrender.com"];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
        res.setHeader('Access-Control-Allow-Origin', origin);
