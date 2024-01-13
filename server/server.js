@@ -378,7 +378,9 @@ app.post('/api/files', (req, res) => {
 app.post('/api/delete',(req,res)=>{
   var down3=req.body.download
   var usern3=req.body.email
-
+  const { token } = req.cookies;
+  jwt.verify(token, secret, {}, async (err, info) => {
+    if (err) {throw err;}
     var filePath = 'uploads/'+usern3+'/'+down3;
     
     fs.unlink(filePath,(error)=>{
@@ -386,24 +388,10 @@ app.post('/api/delete',(req,res)=>{
             res.send('Error: ' + error.message);
           } else 
             res.send('Deleted');
-
     });
-    // fs.access(filePath, (err) => {
-    //   if (err) {
-    //     res.status(404).send('File not found');
-    //   } else {
-    //     fs.unlink(filePath, (err) => {
-    //       if (err) {
-    //         res.status(500).send('Error: ');
-    //       } else {
-    //         res.send('Deleted'); 
-    //       }
-    //     }); 
-    //   }
-    // });
     down3=null;
-  usern3=null;
- 
+    usern3=null;
+})
 }) 
 
 
