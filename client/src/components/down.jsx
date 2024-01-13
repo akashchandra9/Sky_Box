@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { UserContext } from "./UserContext";
 import './pro.css';
-
+import Popup from "./pop";
 const Down = () => {
   useEffect(() => {
     fetch(process.env.React_App_Host_Api + "/profile", {
@@ -88,33 +88,34 @@ const Down = () => {
 
   function del() {
     if (download === '') {
-      toast.error("Please write file name");
+      toast.error('Please write file name');
     } else {
       var user = {
         download: download,
-        email: email
+        email: email,
       };
-      axios.post(process.env.React_App_Host_Api + '/api/delete', user).then((res) => {
-        toast.success("Deleted");
-        show();
-      }).catch((err) => {
-        toast.error("File not found and not deleted");
-      });
+  
+      fetch(`${process.env.React_App_Host_Api}/api/delete`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include', 
+        body: JSON.stringify(user),
+      })
+        .then((response) => {
+          if (response.ok) {
+            toast.success("Deleted");
+            show();
+          } else {
+            throw new Error('File not found and not deleted');
+          }
+        })
+        
+        
     }
   }
-
-  function del2(file) {
-    var user = {
-      download: file,
-      email: email
-    };
-    axios.post(process.env.React_App_Host_Api + '/api/delete', user).then((res) => {
-      toast.success("Deleted");
-      show();
-    }).catch((err) => {
-      toast.error("File not found and not deleted");
-    });
-  }
+ 
 
   function dow2(file) {
     if (download === '') {
@@ -147,7 +148,58 @@ const Down = () => {
     const extension = filename.split('.').pop().toLowerCase();
     return imageExtensions.includes(extension);
   }
+  const handleDelete = (file) => {
+    setPopup({
+      show: true,
+      id: file,
+    });
+  };
 
+  const handleDeleteTrue = async () => {
+  if (popup.show && popup.id) {
+    var user = {
+      download: popup.id,
+      email: email,
+    };
+
+    try {
+      const response = await fetch(`${process.env.React_App_Host_Api}/api/delete`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify(user),
+      });
+
+      if (response.ok) {
+        toast.success('Deleted');
+        show();
+      } else {
+        toast.error('File not found and not deleted');
+      }
+    } catch (error) {
+      console.error('Error deleting file:', error);
+    }
+
+    setPopup({
+      show: false,
+      id: null,
+    });
+  }
+};
+
+
+  const handleDeleteFalse = () => {
+    setPopup({
+      show: false,
+      id: null,
+    });
+  };
+  const [popup, setPopup] = useState({
+    show: false,
+    id: null,
+  });
   return (
     <>
     <p>{email}</p>
@@ -168,6 +220,12 @@ const Down = () => {
           {downloadProgress}%
         </div>
       )}
+      {popup.show && (
+          <Popup
+            handleDeleteTrue={handleDeleteTrue}
+            handleDeleteFalse={handleDeleteFalse}
+          />
+        )}
       <ToastContainer />
       <div>
         <h1>Files Available:</h1>
@@ -175,7 +233,7 @@ const Down = () => {
           <div key={index}>
             <h6>{file}</h6>
             <button onClick={() => dow(file)}>Download</button>
-            <button onClick={() => del2(file)}>Delete</button>
+            <button onClick={() => handleDelete(file)}>Delete</button>
             <button onClick={() => setPreviewFile(file)}>Preview</button>
           </div>
         ))}
