@@ -34,31 +34,31 @@ const Down = () => {
         download: download,
         email: email
       };
-
-      fetch(process.env.React_App_Host_Api + '/api/down', {
-        method: 'POST',
-        body: JSON.stringify(user),
+  
+      axios.post(process.env.React_App_Host_Api + '/api/down', user, {
+        responseType: 'blob',
+        onDownloadProgress: (progressEvent) => {
+          const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
+          setDownloadProgress(progress);
+        },
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
+        withCredentials: true,
       })
-        .then(response => {
-          if (response.ok) {
-            return response.blob();
-          } else {
-            throw new Error('File not found');
-          }
-        })
-        .then(blobData => {
+      .then(response => {
+        if (response.status === 200) {
           toast.success('Success');
-          fileDownload(blobData, download);
+          fileDownload(response.data, download);
           setDownloadProgress(0);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          toast.error('File not found');
-        });
+        } else {
+          throw new Error('File not found');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        toast.error('File not found');
+      });
     }
   }
 
