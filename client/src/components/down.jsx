@@ -118,11 +118,8 @@ const Down = () => {
  
 
   function dow2(file) {
-    if (download === '') {
-      toast.error("Please write file name");
-    } else {
       var user = {
-        download: download,
+        download: file,
         email: email
       };
       axios.post(process.env.React_App_Host_Api + '/api/down', user, {
@@ -131,16 +128,17 @@ const Down = () => {
           const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
           setDownloadProgress(progress);
         },
+        withCredentials: true,
       })
         .then((res) => {
           toast.success('Success');
-          fileDownload(res.data, download);
+          fileDownload(res.data, file);
           setDownloadProgress(0);
         })
         .catch(() => {
           toast.error("File not found");
         });
-    }
+    
   }
 
   function isImageFile(filename) {
@@ -232,7 +230,7 @@ const Down = () => {
         {files.map((file, index) => (
           <div key={index}>
             <h6>{file}</h6>
-            <button onClick={() => dow(file)}>Download</button>
+            <button onClick={() => dow2(file)}>Download</button>
             <button onClick={() => handleDelete(file)}>Delete</button>
             <button onClick={() => setPreviewFile(file)}>Preview</button>
           </div>
