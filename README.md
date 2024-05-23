@@ -32,7 +32,7 @@ The frontend is built with React.js and includes the following main components:
 
 1. **Clone the Repository**:
     ```sh
-    git clone https://github.com/yourusername/SkyBox.git
+    git clone https://github.com/akashchandra9/Sky_Box.git
     ```
 
 2. **Install Dependencies**:
